@@ -40,6 +40,22 @@ libxrandr
 nlohmann-json
 qt6-tools
 vulkan-headers
+opencv
+gstreamer
+gst-plugins-base
+gst-plugins-good
+libglvnd
+wayland-protocols
+librealsense2
+depthai
+cjson
+leap-sdk
+leapv2-sdk
+onnxruntime
+percetto
+libuvc
+survive
+
 
 
 
