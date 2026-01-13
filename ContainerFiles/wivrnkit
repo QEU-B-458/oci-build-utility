@@ -6,10 +6,10 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="jorge.castro@gmail.com"
 
 # Copy the setup scripts and package list
-COPY ../scripts/boxkit.sh /
+COPY ../scripts/wivrnkit.sh /
 COPY ../scripts/distrobox-shims.sh /
-COPY ../packages/boxkit.packages /
+COPY ../packages/wivrnkit.packages /
 
 # Run the setup scripts
-RUN chmod +x boxkit.sh distrobox-shims.sh && /boxkit.sh
-RUN rm /boxkit.sh /distrobox-shims.sh /boxkit.packages
+RUN chmod +x wivrnkit.sh distrobox-shims.sh && /wivrnkit.sh
+RUN rm /wivrnkit.sh /distrobox-shims.sh /wivrn.packages
