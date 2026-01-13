@@ -5,4 +5,4 @@
 
 # Update the container and install packages
 pacman -Syu --noconfirm
-grep -v '^#' ./boxkit.packages | xargs pacman -Syu --noconfirm
+grep -v '^#' ./wivrnkit.packages | xargs pacman -Syu --noconfirm
