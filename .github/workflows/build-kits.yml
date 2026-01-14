@@ -36,8 +36,8 @@ jobs:
             ${{ matrix.containerfile }}
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/boxkit/main/README.md
-
-      # Build image using Buildah action
+            org.opencontainers.image.description=Arch Linux toolbox image for wivrnkit with RealSense and Ultraleap overlays
+            
       - name: Build Image
         id: build_image
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
