@@ -4,7 +4,7 @@
 ./distrobox-shims.sh
 
 # Update the container and install packages
-pacman -Syu --noconfirm --needed base-devel
+pacman -Syu --noconfirm --needed base-devel git wget
 git clone https://aur.archlinux.org/paru.git
 cd paru && makepkg -s --noconfirm && cd ..
 grep -v '^#' ./wivrnkit.packages | xargs paru -S --noconfirm --needed
