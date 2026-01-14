@@ -55,10 +55,6 @@ onnxruntime
 percetto
 libuvc
 survive
-
-
-
-
 fuse2
 squashfs-toolspkgconfig
 wget
