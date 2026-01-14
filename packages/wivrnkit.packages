@@ -49,7 +49,6 @@ wayland-protocols
 librealsense
 cjson
 onnxruntime
-percetto
 libuvc
 libsurvive
 fuse2
