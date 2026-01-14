@@ -5,6 +5,8 @@ LABEL com.github.containers.toolbox="true" \
       summary="A cloud-native terminal experience" \
       maintainer="jorge.castro@gmail.com"
 
+WORKDIR /
+
 # Copy the setup scripts and package list
 COPY ../scripts/wivrnkit.sh /
 COPY ../scripts/distrobox-shims.sh /
