@@ -1,11 +1,6 @@
 name: build-boxkit
 on:
   workflow_dispatch: # allow manually triggering build
-  push:
-    branches:
-      - main
-    paths-ignore: # don't rebuild on documentation change
-      - '**.md'
   schedule:
     - cron: '0 0 * * TUE'
 
