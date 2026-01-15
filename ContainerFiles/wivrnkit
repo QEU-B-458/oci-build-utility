@@ -36,6 +36,3 @@ RUN wget https://github.com/AppImage/AppImageKit/releases/download/continuous/ap
 
 # --- Cleanup ---
 RUN rm -f /distrobox-shims.sh /wivrnkit.packages
-
-# --- Back to toolbox default user ---
-USER 1000
