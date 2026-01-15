@@ -5,22 +5,33 @@ LABEL com.github.containers.toolbox="true" \
       summary="A cloud-native terminal experience" \
       maintainer="jorge.castro@gmail.com"
 
-WORKDIR /AUR
-USER root
 RUN pacman-key --init
 
-RUN pacman -Syyu --noconfirm base-devel git wget
+RUN pacman -Syyu --noconfirm base-devel git 
+
+RUN useradd -m build_user && \
+    passwd -d build_user && \
+    printf 'docker_user ALL=(ALL) ALL\n' | tee -a /etc/sudoers
+
+USER root
+
+RUN mkdir /AUR && chown build_user:build_user /AUR
+
+USER build_user
+
+WORKDIR /AUR
+
 RUN git clone https://aur.archlinux.org/paru.git
 
 WORKDIR /AUR/paru
-
-USER 1000
 
 RUN makepkg -si --noconfirm
 
 USER root
 
 WORKDIR /
+
+
 
 # Copy required files
 COPY ../scripts/distrobox-shims.sh /distrobox-shims.sh
