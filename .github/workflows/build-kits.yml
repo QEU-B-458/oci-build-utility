@@ -31,6 +31,11 @@ jobs:
         id: build_time
         run: |
           echo "created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_OUTPUT
+      
+      - name: Clean Buildah storage
+        run: |
+          buildah rm --all || true
+          buildah rmi --all || true
 
             
       - name: Build Image
