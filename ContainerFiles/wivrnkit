@@ -1,13 +1,23 @@
-FROM docker.io/ticpu/archlinux-paru:latest
+FROM archlinux:latest
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
       summary="A cloud-native terminal experience" \
       maintainer="jorge.castro@gmail.com"
 
+WORKDIR /AUR
+USER root
+RUN pacman-key --init
+
+RUN pacman -Syyu --noconfirm base-devel git wget
+RUN git clone https://aur.archlinux.org/paru.git
+
+WORKDIR /AUR/paru
+
+RUN makepkg -si --noconfirm
+
 WORKDIR /
 
-USER root
 # Copy required files
 COPY ../scripts/distrobox-shims.sh /distrobox-shims.sh
 COPY ../packages/wivrnkit.packages /wivrnkit.packages
@@ -36,3 +46,6 @@ RUN wget https://github.com/AppImage/AppImageKit/releases/download/continuous/ap
 
 # --- Cleanup ---
 RUN rm -f /distrobox-shims.sh /wivrnkit.packages
+
+# --- Back to toolbox default user ---
+USER 1000
